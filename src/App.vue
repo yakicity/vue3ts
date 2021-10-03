@@ -1,8 +1,11 @@
 <template>
   <div id="nav">
+    <!-- ルーター経由のリンクは、aタグではなく、router-linkを利用します（to属性でリンク先を指定）-->
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/article">Article</router-link>
   </div>
+  <!-- ルーター経由で呼び出されたコンポーネントは、router-viewの領域に反映される -->
   <router-view />
 </template>
 
