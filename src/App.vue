@@ -1,30 +1,36 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Hello />
+  <hello-ref />
+  <hello-reactive />
+  <hello-rea-toref />
+  <div class="app">
+    <hello-props :msg="msg" />
   </div>
-  <router-view />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script lang="ts">
+import { defineComponent, ref } from "vue";
+import Hello from "./components/Hello.vue";
+import HelloRef from "./components/HelloRef.vue";
+import HelloReactive from "./components/HelloReactive.vue";
+import HelloReaToref from "./components/HelloReaToref.vue";
+import HelloProps from "./components/HelloProps.vue";
 
-#nav {
-  padding: 30px;
-}
+export default defineComponent({
+  name: "App",
+  components: {
+    Hello,
+    HelloRef,
+    HelloReactive,
+    HelloReaToref,
+    HelloProps,
+  },
+  setup() {
+    const msg = ref("Hello TypeScript");
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+    return {
+      msg,
+    };
+  },
+});
+</script>
