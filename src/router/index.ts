@@ -23,9 +23,24 @@ const routes: Array<RouteRecordRaw> = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/article",
-    name: "Article",
-    component: () => import("../views/Article.vue"),
+    path: "/userdetails/:id",
+    name: "UserDetails",
+    component: () => import("../views/UserDetails.vue"),
+  },
+  {
+    path: "/calender",
+    name: "Calender",
+    component: () => import("../views/Calender.vue"),
+  },
+  {
+    path: "/sysadtest",
+    name: "Sysadtest",
+    component: () => import("../views/Sysadtest.vue"),
+  },
+  {
+    path: "/todo",
+    name: "Todo",
+    component: () => import("../views/Todo.vue"),
   },
 ];
 
