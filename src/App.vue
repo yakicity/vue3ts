@@ -1,36 +1,39 @@
 <template>
-  <Hello />
-  <hello-ref />
-  <hello-reactive />
-  <hello-rea-toref />
-  <div class="app">
-    <hello-props :msg="msg" />
+  <div id="nav">
+    <!-- ルーター経由のリンクは、aタグではなく、router-linkを利用します
+    （to属性でリンク先を指定）-->
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link> |
+    <router-link to="/userdetails">UserDetails</router-link> |
+    <router-link to="/calender">Calender</router-link> |
+    <router-link to="/sysadtest">Sysadtest</router-link> |
+    <router-link to="/todo">Todo</router-link>
   </div>
+  <!-- ここの部分に <router-link> から router.js を経由して呼び出された
+    コンポーネントの内容が描画される。これが無いと コンポーネントを呼び出している
+    の描画されない ということになるので注意 -->
+  <router-view />
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from "vue";
-import Hello from "./components/Hello.vue";
-import HelloRef from "./components/HelloRef.vue";
-import HelloReactive from "./components/HelloReactive.vue";
-import HelloReaToref from "./components/HelloReaToref.vue";
-import HelloProps from "./components/HelloProps.vue";
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-export default defineComponent({
-  name: "App",
-  components: {
-    Hello,
-    HelloRef,
-    HelloReactive,
-    HelloReaToref,
-    HelloProps,
-  },
-  setup() {
-    const msg = ref("Hello TypeScript");
+#nav {
+  padding: 30px;
+}
 
-    return {
-      msg,
-    };
-  },
-});
-</script>
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+}
+</style>
